@@ -1,0 +1,53 @@
+acl:
+- action: permit
+  protocol: tcp
+  src: 192.168.1.0
+  src_wildcard: 0.0.0.255
+  dst: 192.168.2.0
+  dst_wildcard: 0.0.0.255
+  dst_port: 80
+  description: "Allow ONLY HTTP (clients\u2192servers)"
+- action: deny
+  protocol: tcp
+  src: 0.0.0.0
+  src_wildcard: 255.255.255.255
+  dst: 0.0.0.0
+  dst_wildcard: 255.255.255.255
+  dst_port: 443
+  description: Block HTTPS (Non-HTTP)
+- action: deny
+  protocol: udp
+  src: 0.0.0.0
+  src_wildcard: 255.255.255.255
+  dst: 0.0.0.0
+  dst_wildcard: 255.255.255.255
+  dst_port: 53
+  description: Block DNS (Non-HTTP)
+- action: deny
+  protocol: tcp
+  src: 0.0.0.0
+  src_wildcard: 255.255.255.255
+  dst: 0.0.0.0
+  dst_wildcard: 255.255.255.255
+  dst_port: 23
+  description: Block Telnet (Non-HTTP)
+- action: deny
+  protocol: tcp
+  src: 0.0.0.0
+  src_wildcard: 255.255.255.255
+  dst: 0.0.0.0
+  dst_wildcard: 255.255.255.255
+  dst_port: 21
+  description: Block FTP (Non-HTTP)
+- action: deny
+  protocol: icmp
+  src: 0.0.0.0
+  src_wildcard: 255.255.255.255
+  dst: 0.0.0.0
+  dst_wildcard: 255.255.255.255
+  dst_port: 0
+  description: Block ICMP Ping (Non-HTTP)
+whitelist:
+- tcp
+- udp
+- icmp

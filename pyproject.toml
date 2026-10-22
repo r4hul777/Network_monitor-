@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netmon-sim"
+version = "1.0.0"
+description = "Network monitoring simulator with router ACL filtering, monitoring server, CLI, and web dashboard"
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml>=6.0",
+    "click>=8.0",
+    "flask>=3.0",
+    "watchdog>=3.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+netmon = "netmon_sim.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["netmon_sim*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

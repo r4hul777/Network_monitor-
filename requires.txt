@@ -1,0 +1,9 @@
+pyyaml>=6.0
+click>=8.0
+flask>=3.0
+watchdog>=3.0
+rich>=13.0
+
+[dev]
+pytest>=7.0
+pytest-cov>=4.0

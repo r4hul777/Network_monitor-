@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: netmon-sim
+Version: 1.0.0
+Summary: Network monitoring simulator with router ACL filtering, monitoring server, CLI, and web dashboard
+Requires-Python: >=3.9
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: click>=8.0
+Requires-Dist: flask>=3.0
+Requires-Dist: watchdog>=3.0
+Requires-Dist: rich>=13.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
